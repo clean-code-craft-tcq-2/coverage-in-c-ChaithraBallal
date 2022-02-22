@@ -44,8 +44,8 @@ void sendToEmail(BreachType breachType)
 
 void printOnConsole(const char* recepient, BreachType breachType)
 {
-  printf("To: %s\n", receiver);
-  printf("%s", alertMsgForEmail[breachType]);
+  printf("To: %s\n", recepient);
+  printf("%s", alertMsgEmail[breachType]);
 }
 
 /*Main code under test*/
