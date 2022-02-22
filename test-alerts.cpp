@@ -11,8 +11,7 @@ TEST_CASE("infers the breach according to limits")
 }
 
 TEST_CASE("infers the breach according to cooling types") 
-{
-  
+{  
   REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, -4) == TOO_LOW);
   REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, 36) == TOO_HIGH);
   REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING, 26) == NORMAL);
@@ -24,4 +23,13 @@ TEST_CASE("infers the breach according to cooling types")
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, -45) == TOO_LOW);
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 42) == TOO_HIGH);
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 39) == NORMAL);
+}
+
+TEST_CASE("infers the breach and send alerts") 
+{
+  checkAndAlert(TO_CONTROLLER, PASSIVE_COOLING, 20);
+  assert(alert_ControllerID ==1);
+  
+  checkAndAlert(TO_CONTROLLER, HI_ACTIVE_COOLING, 20);
+  assert(alert_EmailID  ==1);
 }
