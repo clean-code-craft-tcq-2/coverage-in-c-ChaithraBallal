@@ -25,7 +25,7 @@ TEST_CASE("infers the breach according to cooling types")
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 39) == NORMAL);
 }
 
-TEST_CASE("infers the breach and send alerts") 
+TEST_CASE("infers the breach and send alerts to controller") 
 {
   BatteryCharacter BatteryNature;
   BatteryNature.coolingType = PASSIVE_COOLING;
@@ -33,6 +33,8 @@ TEST_CASE("infers the breach and send alerts")
   assert(alert_ControllerID ==1);
   
   BatteryNature.coolingType = HI_ACTIVE_COOLING;
-  checkAndAlert(TO_CONTROLLER, BatteryNature, 20);
+  checkAndAlert(TO_EMAIL, BatteryNature, 20);
   assert(alert_EmailID  ==1);
 }
+
+
