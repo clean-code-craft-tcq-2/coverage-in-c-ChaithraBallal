@@ -5,7 +5,7 @@ int classifyTemperatureLimits[Number_Of_Cooling_Types][Temp_Limits] = {{PASSIVE_
                                                                        {HI_ACTIVE_COOLING_LOWER,HI_ACTIVE_COOLING_UPPER},
                                                                        {MED_ACTIVE_COOLING_LOWER,MED_ACTIVE_COOLING_UPPER}};
 void (*alertTargetTypesfp[NUM_ALERT_TYPES])(breachType) = {sendToController, sendToEmail};
-char alertMsgEmail[breachType][100] = {{"Hi, the temperature is too low\n"},
+char alertMsgEmail[NUM_BREACHTYPES][100] = {{"Hi, the temperature is too low\n"},
                                        {"Hi, the temperature is too high\n"},
                                        {"Hi, the temperature is Normal\n"} };
 
