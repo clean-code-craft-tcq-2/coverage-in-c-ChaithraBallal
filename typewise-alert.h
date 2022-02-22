@@ -2,6 +2,8 @@
 
 #define Number_Of_Cooling_Types     3
 #define Temp_Limits                 2
+#define NUM_ALERT_TYPES             2
+#define NUM_BREACHTYPES             3
 #define PASSIVE_COOLING_LOWER       0
 #define PASSIVE_COOLING_UPPER      35
 #define HI_ACTIVE_COOLING_LOWER     0
