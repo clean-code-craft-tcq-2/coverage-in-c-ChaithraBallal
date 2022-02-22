@@ -4,7 +4,7 @@
 int classifyTemperatureLimits[Number_Of_Cooling_Types][Temp_Limits] = {{PASSIVE_COOLING_LOWER,PASSIVE_COOLING_UPPER},
                                                                        {HI_ACTIVE_COOLING_LOWER,HI_ACTIVE_COOLING_UPPER},
                                                                        {MED_ACTIVE_COOLING_LOWER,MED_ACTIVE_COOLING_UPPER}};
-void (*alertTargetTypesfp[NUM_ALERT_TYPES])(breachType) = {sendToController, sendToEmail};
+void (*alertTargetTypesfp[NUM_ALERT_TYPES])(BreachType) = {sendToController, sendToEmail};
 char alertMsgEmail[NUM_BREACHTYPES][100] = {{"Hi, the temperature is too low\n"},
                                        {"Hi, the temperature is too high\n"},
                                        {"Hi, the temperature is Normal\n"} };
@@ -52,7 +52,7 @@ void printOnConsole(const char* recepient, BreachType breachType)
 void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
 {
   BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
-  alertTargetTypesfp[alertTarget](breachType);
+  (alertTargetTypesfp[alertTarget])(breachType);
 }
 
 
