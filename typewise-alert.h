@@ -13,6 +13,9 @@
 #define Lower_ID                    0
 #define Higher_ID                   1
 
+extern int alert_ControllerID = 0;
+extern int alert_EmailID = 0;
+
 typedef enum 
 {
   PASSIVE_COOLING,
