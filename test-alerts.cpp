@@ -28,11 +28,11 @@ TEST_CASE("infers the breach according to cooling types")
 TEST_CASE("infers the breach and send alerts") 
 {
   BatteryCharacter BatteryNature;
-  BatteryNature.CoolingType = PASSIVE_COOLING;
+  BatteryNature.coolingType = PASSIVE_COOLING;
   checkAndAlert(TO_CONTROLLER, BatteryNature, 20);
   assert(alert_ControllerID ==1);
   
-  BatteryNature.CoolingType = HI_ACTIVE_COOLING;
+  BatteryNature.coolingType = HI_ACTIVE_COOLING;
   checkAndAlert(TO_CONTROLLER, BatteryNature, 20);
   assert(alert_EmailID  ==1);
 }
